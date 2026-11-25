@@ -1,0 +1,34 @@
+name: Prototype QA
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --prefix reference-engine
+      - run: npm --prefix reference-engine test
+      - run: ./reference-engine/node_modules/.bin/tsc -p tsconfig.core.json
+      - run: node --test tests/*.test.cjs
+  expo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install
+      - run: npx expo install --check
+      - run: npx expo-doctor
+      - run: npm run typecheck
+      - run: npx expo export --platform android
