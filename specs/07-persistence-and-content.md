@@ -1,0 +1,3 @@
+# 07 — Content and persistence
+Offline AsyncStorage versioned snapshot settings, records keyed levelId, prerequisite unlock derived. Stars best and bestTime min independently; only finished full-run writes. Retry starts new session. Settings validated Zod; corrupt save fallback with notice. Future: serial write queue, backup corrupt, unknown newer version no overwrite, explicit save failure and retry; recentResult/controlMode/sessionId/contentVersion; practice no record. No raw sensor upload or accounts.
+JSON schema contracts/level.schema.json plus semantic validation: finite values, contiguous segments, speeds ordered, events sorted single fire with zones in bounds. Catalog immutable IDs and prerequisite. Branch-specific geometry schema migration pending.

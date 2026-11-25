@@ -1,0 +1,4 @@
+# Acceptance scenarios
+A01 L01 tilt right in right curve reduces outward drift; A02 sustained wrong tilt EJECT_SLIDE once; A03 closed L02 HIT_WALL; A04 rail DERAIL; A05 rock crossing HIT_ROCK; A06 ice OFF_TRACK; A07 split gate route and branch rejoin (branch pending); A08 L10 unstable landing; A09 recover before grace.
+A10 background/stale pauses no catch-up; A11 permission denied → touch; A12 retry clean; A13 locked deep link blocked; A14 invalid settings no save and cancel unchanged; A15 corrupt storage backup/reset with notice; A16 fail precedence; A17 10 sequential rides ≥30fps; A18 comfort same outcome; A19 practice no unlock (pending); A20 all 12 scripted pass/fail; A21 offline completion persists; A22 GL error return/retry.
+Evidence: qa/PROTOTYPE-TESTS.md, GitHub Actions. Device tests not run, no claim all A01–A22 passed.

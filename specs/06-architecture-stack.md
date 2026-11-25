@@ -1,0 +1,4 @@
+# 06 — Architecture / stack
+Expo SDK58 RN0.88 React19.3, TypeScript strict, Expo Router Stack, R3F native/Three/expo-gl/expo-asset, DeviceMotion, Zustand, AsyncStorage, RHF/Zod, Expo Audio/Haptics, EAS. Native package versions theo expo install --check; lockfile ở P0. Server state TanStack Query chỉ khi cần backend, không nằm MVP. No WebView, no Unity.
+Routes src/app; domain pure TS, reference-engine/src, adapters hooks/components; stores low-frequency persisted state; game tick mutable session ref. Input → fixed-step engine → event queue + snapshot → camera/mesh + audio/haptic + sampled HUD. Hooks useMotionInput, calibration, read/touch; session.ts advance; RideScene useFrame; RideScreen lifecycle. Tách useRideAudio/useRideHud/useRideSession thành hooks khi mở rộng. Không lưu Three object vào Zustand. Form draft chỉ ghi khi submit.
+Tests Node core, native typecheck, Expo bundle, device/E2E; dependencies và lệnh setup trong package.json/README.

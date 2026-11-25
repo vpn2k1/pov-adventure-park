@@ -1,0 +1,4 @@
+# 05 — UI, navigation, forms
+Expo Router Stack; routes home, park, level detail, ride/[id], result, settings. Prototype result/calibration overlay trong ride, detail gộp park card. Deep link locked/invalid redirect park. Pause modal: resume countdown, recalibrate, restart, exit. Android back pause, iOS gesture disable khi ride. Hydration loading/error, GL fallback, sensor permission denied → touch.
+HUD: speed, progress, risk, corrective direction, pause; safe area, targets 48dp, không che trung tâm. Result finish/fail reason, stars, time, peak speed, retry, next khi unlocked.
+RHF + Zod + resolvers; settings draft local, save explicit valid, cancel không mutate. sensitivity .7–1.4, deadzone 2–8°, fullTilt20–35° và >deadzone+10°, controlMode tilt/touch, comfort/haptics/invert boolean, sfxVolume 0–1; language VI/EN ở P5. Không persist raw sensor.

@@ -1,0 +1,5 @@
+# 01 — Game design document
+Cảm giác POV trong công viên nhưng có kỹ năng nghiêng để bù quán tính. Game casual offline dọc, tự tiến theo đường chạy, không tiền xu/chướng ngại phi thực tế, không hệ thống mạng. Lượt mục tiêu 45–100 giây. Không mô phỏng an toàn của trò chơi ngoài đời.
+Home → Park → chọn level đã mở → hiệu chỉnh / chạm → countdown → riding → finish/fail → result → retry/next/park.
+Thắng khi tới cuối đường và không fail; fail khi mất cân bằng đủ grace, trúng vùng nguy hiểm hoặc landing sai. 1 sao khi finish, 2 sao khi safe ticks ≥70%, 3 sao ≥90%. Không cộng điểm trong pause. Fail ưu tiên nếu cùng tick với finish. Không hình ảnh thương tích, hiệu ứng tối đa 0.7s; comfort giảm motion mà không đổi luật. Mở khóa tuần tự; retry miễn phí; practice không ghi kỷ lục.
+MVP L01–L03; mở rộng 12 level 5 family. Không tài khoản, multiplayer, quảng cáo, IAP, VR. Playtest 10–20 người: ≥80% hiểu tilt trong 30s, ≥70% vượt tutorial trong 3 lần, ≥50% tự retry/next. Đây là mục tiêu thử nghiệm, chưa đo.

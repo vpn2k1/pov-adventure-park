@@ -1,0 +1,30 @@
+phase,task_id,title,status
+P0,SPIKE,Expo SDK dependencies and bundle,IN_PROGRESS
+P0,RENDER,Native GL scene,DEVICE_PENDING
+P0,SENSOR,Portrait calibration and tilt sign,DEVICE_PENDING
+P0,PERF,Measure 2 Android devices,TODO
+P1,SCHEMA,12 configs and JSON schema,CORE_TESTED
+P1,ENGINE,Fixed-step and 5 families,CORE_TESTED
+P1,PATH,Procedural path sampler,CORE_TESTED
+P1,CAMERA,POV follow and comfort,DEVICE_PENDING
+P2,ROUTER,Home park ride result settings,IMPLEMENTED_UNVERIFIED
+P2,FORM,RHF Zod settings,IMPLEMENTED_UNVERIFIED
+P2,STORE,Zustand AsyncStorage,IMPLEMENTED_UNVERIFIED
+P2,SESSION,Pause retry and sensor stale,CORE_TESTED_PARTIAL
+P2,HUD,Warning and result,IMPLEMENTED_UNVERIFIED
+P2,AUDIO,Cue audio haptics,IMPLEMENTED_UNVERIFIED
+P3,TUNNEL,L02 closed rule,CORE_TESTED
+P3,RAIL,L03 derail rule,CORE_TESTED
+P3,PLAYTEST,3 level playtest,TODO
+P4,RAFT,L04 L08 rocks,CORE_TESTED
+P4,ICE,L05 L09 slalom,CORE_TESTED
+P4,BRANCH,L06 L12 branching spline,PARTIAL
+P4,CANYON,L07 tighter rail,CORE_TESTED
+P4,FALL,L10 vertical track,PARTIAL
+P4,LOOP,L11 loop frame,TODO
+P4,PRACTICE,Checkpoint no progression,TODO
+P4,LEVELQA,12 pass fail traces,CORE_TESTED
+P5,ART,Original assets and polish,PARTIAL
+P5,I18N,VI EN accessibility,TODO
+P5,QA,Device and lifecycle matrix,TODO
+P6,RELEASE,EAS build signing release,TODO

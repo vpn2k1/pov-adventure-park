@@ -1,0 +1,3 @@
+# 08 — Performance, audio, assets
+60 FPS target, sustained ≥30 FPS device gate, p95 ≤33ms, 10 retries no GL blank/leaks. Budget initial <100 visible draw calls, <100k triangles, texture atlas 512–1024; no dynamic shadows, instance props, use fixed-step and sampled HUD, dispose mesh, avoid allocation per tick. GL load error returns park.
+Assets: procedural U/rail/tunnel/ice/river, GLB props, WebP sky/trees/feet/raft/front/foam/HUD/thumbnails. Audio wind/water/rail/tunnel loops, SFX warning/fail/finish, haptic respect setting, pause on background. Art source original/licensed; manifest; prototype placeholders acceptable.

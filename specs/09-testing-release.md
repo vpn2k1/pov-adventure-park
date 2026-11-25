@@ -1,0 +1,3 @@
+# 09 — QA and release
+Core unit tests: deterministic fixed dt, tilt normalization, family reasons, grace, gate/rock/landing, fail precedence, trace pass/fail all levels. UI: form cancel/invalid, unlock guards, persist/relaunch, retry, lifecycle, touch fallback. Device matrix 2 Android + iPhone before iOS: sign portrait ±15/30, calibrate, latency, FPS/thermal, 10 retries, GL resume, audio focus, safe areas, airplane mode; stop if discomfort.
+CI: npm install/ci, expo install --check, expo-doctor, typecheck, tests, export. Signed EAS dev/preview/production later; native gate first. Release docs privacy, signing, QA signoff, store screenshots, rollback. No secret in repo. Hermes bytecode and R8 only after verifying production configuration.
