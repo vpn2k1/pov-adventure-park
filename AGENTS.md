@@ -1,0 +1,11 @@
+# Hướng dẫn triển khai cho coding agent
+- Trả lời/ghi chú bằng tiếng Việt; code TypeScript strict, tên biến tiếng Anh. Không tự đổi RN/Expo sang Unity, Flutter hay WebView.
+- Đọc README, roadmap, specs/03 và spec liên quan trước khi code. Chỉ implement phase được yêu cầu, không tự mở rộng backend, auth, monetization.
+- Kiến trúc: domain engine thuần TS không import React/Three/Expo; adapter input/render/audio/storage phụ thuộc domain. Rule level tách riêng, không hardcode ID level trong game loop.
+- Đơn vị SI (m, s, m/s); độ cho input UI, radian cho trig. Positif = phải. Không dùng số khung hình làm thời gian.
+- Không set React state 60 lần/s. Engine ref mutable, fixed step 1/60s; HUD snapshot 5–10Hz; Zustand giữ cài đặt/progress/trạng thái UI, không giữ transform.
+- Mọi dữ liệu JSON validate trước khi vào ride. Không tin saved data; migration, fallback, transaction idempotent.
+- Pause khi app background, sensor stale, màn khóa; resume cần hiệu chỉnh. Không cộng thời gian offline vào ride. Cleanup listener/audio/mesh mỗi lần thoát.
+- Không cảnh máu me hoặc mô tả tai nạn thực tế. Comfort mode không giảm khả năng điều khiển; cung cấp touch fallback có cùng luật.
+- Kiểm tra `npx expo install --check`, `npx expo-doctor`, typecheck, lint, unit/integration và thiết bị thật. Không nâng SDK/package tùy tiện. Commit lockfile sau khi smoke test. Đọc acceptance theo task và báo rõ test nào chưa chạy.
+- Mọi mock/placeholder phải được ghi rõ. Không tuyên bố build chạy khi chưa chạy; không bỏ qua lỗi bằng any hoặc ts-ignore.
