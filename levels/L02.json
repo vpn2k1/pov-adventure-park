@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "L02",
+  "name": "Spiral Tunnel",
+  "family": "slide",
+  "difficulty": 3,
+  "lengthM": 230,
+  "startSpeed": 3.5,
+  "minSpeed": 3,
+  "maxSpeed": 7,
+  "params": {
+    "halfWidth": 1.35,
+    "steer": 6.5,
+    "damping": 3.2,
+    "centering": 2.5,
+    "drag": 0.12,
+    "graceSec": 0.45,
+    "balanceLimit": 1,
+    "balanceGain": 2.4,
+    "balanceRecovery": 1
+  },
+  "segments": [
+    {
+      "startM": 0,
+      "endM": 41,
+      "curvature": 0,
+      "slopeDeg": 5,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 41,
+      "endM": 97,
+      "curvature": 0.039,
+      "slopeDeg": 8,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 97,
+      "endM": 143,
+      "curvature": -0.039,
+      "slopeDeg": 4,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": true
+    },
+    {
+      "startM": 143,
+      "endM": 193,
+      "curvature": 0.029,
+      "slopeDeg": 7,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 193,
+      "endM": 230,
+      "curvature": 0,
+      "slopeDeg": 1,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    }
+  ],
+  "events": []
+}

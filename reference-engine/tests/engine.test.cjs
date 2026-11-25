@@ -1,0 +1,18 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const {initialState,step,score,normalizeTilt,sample,validateLevel,DT}=require('../dist/engine.js');
+const load=id=>JSON.parse(fs.readFileSync(path.join(__dirname,'../../levels',id+'.json'),'utf8'));
+const run=(l,control)=>{const s=initialState(l);let terminal=0;for(let i=0;i<18000&&s.status==='riding';i++){for(const e of step(l,s,control(s,l)))if(e.type==='FAIL'||e.type==='FINISH')terminal++;}assert.equal(terminal,1);return s};
+const controller=(s,l)=>{const p=sample(l,s.s),q=l.params;let target=0;
+ const gate=l.events.find(e=>e.kind==='gate'&&e.atM>=s.s&&e.atM-s.s<Math.max(15,s.v*3));if(gate)target=(gate.zones[0].minX+gate.zones[0].maxX)/2;
+ const d=s.v*s.v*p.curvature-9.81*Math.sin(p.bankDeg*Math.PI/180);
+ if(l.family==='rail'||l.family==='fall')return Math.max(-1,Math.min(1,(l.family==='fall'?p.flow:d)/q.steer-s.balance*.8));
+ return Math.max(-1,Math.min(1,(d-(l.family==='raft'?p.flow:0)+q.centering*target+3*(target-s.x)-1.5*s.vx)/q.steer));};
+test('all 12 level configs pass semantic validation',()=>{for(let i=1;i<=12;i++)validateLevel(load('L'+String(i).padStart(2,'0')))});
+test('tilt deadzone, clamp and angle wrap',()=>{assert.equal(normalizeTilt(3,0),0);assert.equal(normalizeTilt(40,0),1);assert.equal(normalizeTilt(-40,0),-1);assert.equal(normalizeTilt(-179,179),0)});
+test('L01 finishes with scripted controller and fails with wrong tilt',()=>{const l=load('L01'),good=run(l,controller),bad=run(l,()=>-1);assert.equal(good.status,'finished');assert.equal(score(good).stars,3);assert.equal(bad.reason,'EJECT_SLIDE');const at=bad.s;assert.deepEqual(step(l,bad,0),[]);assert.equal(at,bad.s)});
+test('rail, raft, ice fail for sustained wrong input',()=>{for(const [id,reason] of [['L03','DERAIL'],['L04','CAPSIZE'],['L05','OFF_TRACK']])assert.equal(run(load(id),()=>1).reason,reason)});
+test('closed tunnel uses wall failure',()=>{const l=load('L02'),s=initialState(l);s.s=l.segments.find(p=>p.closed).startM+1;s.x=l.params.halfWidth*1.15;s.unsafeSec=l.params.graceSec;step(l,s,1);assert.equal(s.reason,'HIT_WALL')});
+test('rock, gate, landing events fail at crossing',()=>{for(const [id,reason] of [['L04','HIT_ROCK'],['L06','WRONG_GATE'],['L10','UNSTABLE_LANDING']]){const l=load(id),s=initialState(l),e=l.events[0];s.s=e.atM-.01;if(e.kind==='rock')s.x=(e.minX+e.maxX)/2;if(e.kind==='landing')s.balance=.7;step(l,s,0);assert.equal(s.reason,reason)}});
+test('deterministic replay and fixed dt enforcement',()=>{const l=load('L01');assert.deepEqual(run(l,controller),run(l,controller));assert.throws(()=>step(l,initialState(l),0,.5));assert.throws(()=>step(l,initialState(l),NaN,DT))});
+test('finish and fail same tick yields fail',()=>{const l=load('L01'),s=initialState(l);s.s=l.lengthM-.001;s.x=l.params.halfWidth*2;s.unsafeSec=l.params.graceSec;const ev=step(l,s,1);assert.equal(s.status,'failed');assert.equal(ev.filter(e=>e.type==='FAIL'||e.type==='FINISH').length,1)});
+test('scripted pass for all 12 reference levels',()=>{for(let i=1;i<=12;i++){const id='L'+String(i).padStart(2,'0'),l=load(id),s=run(l,controller);assert.equal(s.status,'finished',id)}});
+test('scripted failure for all 12 reference levels',()=>{for(let i=1;i<=12;i++){const id='L'+String(i).padStart(2,'0'),l=load(id),s=run(l,()=>1);assert.equal(s.status,'failed',id)}});

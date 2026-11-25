@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "L04",
+  "name": "Jungle Rapids",
+  "family": "raft",
+  "difficulty": 3,
+  "lengthM": 220,
+  "startSpeed": 3.8,
+  "minSpeed": 3,
+  "maxSpeed": 7,
+  "params": {
+    "halfWidth": 1.6,
+    "steer": 6.5,
+    "damping": 3.2,
+    "centering": 2.5,
+    "drag": 0.12,
+    "graceSec": 0.45,
+    "balanceLimit": 1,
+    "balanceGain": 2.4,
+    "balanceRecovery": 1
+  },
+  "segments": [
+    {
+      "startM": 0,
+      "endM": 40,
+      "curvature": 0,
+      "slopeDeg": 5,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 40,
+      "endM": 92,
+      "curvature": 0.039,
+      "slopeDeg": 8,
+      "bankDeg": 0,
+      "flow": 1.2,
+      "closed": false
+    },
+    {
+      "startM": 92,
+      "endM": 136,
+      "curvature": -0.039,
+      "slopeDeg": 4,
+      "bankDeg": 0,
+      "flow": -1.5,
+      "closed": false
+    },
+    {
+      "startM": 136,
+      "endM": 185,
+      "curvature": 0.029,
+      "slopeDeg": 7,
+      "bankDeg": 0,
+      "flow": 0.8,
+      "closed": false
+    },
+    {
+      "startM": 185,
+      "endM": 220,
+      "curvature": 0,
+      "slopeDeg": 1,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    }
+  ],
+  "events": [
+    {
+      "id": "rock1",
+      "kind": "rock",
+      "atM": 88,
+      "minX": -1.6,
+      "maxX": -0.65
+    },
+    {
+      "id": "rock2",
+      "kind": "rock",
+      "atM": 167,
+      "minX": 0.65,
+      "maxX": 1.6
+    }
+  ]
+}

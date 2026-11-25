@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "L07",
+  "name": "Canyon Coaster",
+  "family": "rail",
+  "difficulty": 4,
+  "lengthM": 410,
+  "startSpeed": 5,
+  "minSpeed": 4,
+  "maxSpeed": 14,
+  "params": {
+    "halfWidth": 1.6,
+    "steer": 12,
+    "damping": 3.2,
+    "centering": 2.5,
+    "drag": 0.12,
+    "graceSec": 0.32,
+    "balanceLimit": 0.85,
+    "balanceGain": 2.4,
+    "balanceRecovery": 1
+  },
+  "segments": [
+    {
+      "startM": 0,
+      "endM": 74,
+      "curvature": 0,
+      "slopeDeg": 5,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 74,
+      "endM": 172,
+      "curvature": 0.043,
+      "slopeDeg": 8,
+      "bankDeg": 7.74,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 172,
+      "endM": 254,
+      "curvature": -0.043,
+      "slopeDeg": 4,
+      "bankDeg": -7.74,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 254,
+      "endM": 344,
+      "curvature": 0.032,
+      "slopeDeg": 7,
+      "bankDeg": 5.76,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 344,
+      "endM": 410,
+      "curvature": 0,
+      "slopeDeg": 1,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    }
+  ],
+  "events": []
+}

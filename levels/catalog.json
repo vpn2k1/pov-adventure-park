@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "levels": [
+    {
+      "id": "L01",
+      "file": "L01.json",
+      "order": 1,
+      "world": "water",
+      "prerequisite": null
+    },
+    {
+      "id": "L02",
+      "file": "L02.json",
+      "order": 2,
+      "world": "water",
+      "prerequisite": "L01"
+    },
+    {
+      "id": "L03",
+      "file": "L03.json",
+      "order": 3,
+      "world": "theme",
+      "prerequisite": "L02"
+    },
+    {
+      "id": "L04",
+      "file": "L04.json",
+      "order": 4,
+      "world": "water",
+      "prerequisite": "L03"
+    },
+    {
+      "id": "L05",
+      "file": "L05.json",
+      "order": 5,
+      "world": "mountain",
+      "prerequisite": "L04"
+    },
+    {
+      "id": "L06",
+      "file": "L06.json",
+      "order": 6,
+      "world": "water",
+      "prerequisite": "L05"
+    },
+    {
+      "id": "L07",
+      "file": "L07.json",
+      "order": 7,
+      "world": "theme",
+      "prerequisite": "L06"
+    },
+    {
+      "id": "L08",
+      "file": "L08.json",
+      "order": 8,
+      "world": "water",
+      "prerequisite": "L07"
+    },
+    {
+      "id": "L09",
+      "file": "L09.json",
+      "order": 9,
+      "world": "mountain",
+      "prerequisite": "L08"
+    },
+    {
+      "id": "L10",
+      "file": "L10.json",
+      "order": 10,
+      "world": "theme",
+      "prerequisite": "L09"
+    },
+    {
+      "id": "L11",
+      "file": "L11.json",
+      "order": 11,
+      "world": "theme",
+      "prerequisite": "L10"
+    },
+    {
+      "id": "L12",
+      "file": "L12.json",
+      "order": 12,
+      "world": "water",
+      "prerequisite": "L11"
+    }
+  ]
+}

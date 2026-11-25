@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "L05",
+  "name": "Ice Dash",
+  "family": "ice",
+  "difficulty": 3,
+  "lengthM": 250,
+  "startSpeed": 4,
+  "minSpeed": 3.5,
+  "maxSpeed": 10,
+  "params": {
+    "halfWidth": 1.6,
+    "steer": 6.5,
+    "damping": 0.75,
+    "centering": 0.9,
+    "drag": 0.12,
+    "graceSec": 0.45,
+    "balanceLimit": 1,
+    "balanceGain": 2.4,
+    "balanceRecovery": 1
+  },
+  "segments": [
+    {
+      "startM": 0,
+      "endM": 45,
+      "curvature": 0,
+      "slopeDeg": 5,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 45,
+      "endM": 105,
+      "curvature": 0.039,
+      "slopeDeg": 8,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 105,
+      "endM": 155,
+      "curvature": -0.039,
+      "slopeDeg": 4,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 155,
+      "endM": 210,
+      "curvature": 0.029,
+      "slopeDeg": 7,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 210,
+      "endM": 250,
+      "curvature": 0,
+      "slopeDeg": 1,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    }
+  ],
+  "events": []
+}

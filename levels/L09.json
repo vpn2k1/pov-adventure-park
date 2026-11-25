@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "L09",
+  "name": "Snow Slope",
+  "family": "ice",
+  "difficulty": 4,
+  "lengthM": 300,
+  "startSpeed": 4,
+  "minSpeed": 3.5,
+  "maxSpeed": 10,
+  "params": {
+    "halfWidth": 1.6,
+    "steer": 6.5,
+    "damping": 0.75,
+    "centering": 0.9,
+    "drag": 0.12,
+    "graceSec": 0.32,
+    "balanceLimit": 0.85,
+    "balanceGain": 2.4,
+    "balanceRecovery": 1
+  },
+  "segments": [
+    {
+      "startM": 0,
+      "endM": 54,
+      "curvature": 0,
+      "slopeDeg": 5,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 54,
+      "endM": 126,
+      "curvature": 0.043,
+      "slopeDeg": 8,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 126,
+      "endM": 186,
+      "curvature": -0.043,
+      "slopeDeg": 4,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 186,
+      "endM": 252,
+      "curvature": 0.032,
+      "slopeDeg": 7,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 252,
+      "endM": 300,
+      "curvature": 0,
+      "slopeDeg": 1,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    }
+  ],
+  "events": [
+    {
+      "id": "gate1",
+      "kind": "gate",
+      "atM": 90,
+      "zones": [
+        {
+          "minX": 0.2,
+          "maxX": 1.5,
+          "route": "right"
+        }
+      ]
+    },
+    {
+      "id": "gate2",
+      "kind": "gate",
+      "atM": 190,
+      "zones": [
+        {
+          "minX": -1.5,
+          "maxX": -0.2,
+          "route": "left"
+        }
+      ]
+    }
+  ]
+}

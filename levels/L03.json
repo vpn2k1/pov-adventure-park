@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "L03",
+  "name": "Sky Coaster",
+  "family": "rail",
+  "difficulty": 3,
+  "lengthM": 320,
+  "startSpeed": 5,
+  "minSpeed": 4,
+  "maxSpeed": 12,
+  "params": {
+    "halfWidth": 1.6,
+    "steer": 12,
+    "damping": 3.2,
+    "centering": 2.5,
+    "drag": 0.12,
+    "graceSec": 0.45,
+    "balanceLimit": 1,
+    "balanceGain": 2.4,
+    "balanceRecovery": 1
+  },
+  "segments": [
+    {
+      "startM": 0,
+      "endM": 58,
+      "curvature": 0,
+      "slopeDeg": 5,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 58,
+      "endM": 134,
+      "curvature": 0.039,
+      "slopeDeg": 8,
+      "bankDeg": 7.02,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 134,
+      "endM": 198,
+      "curvature": -0.039,
+      "slopeDeg": 4,
+      "bankDeg": -7.02,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 198,
+      "endM": 269,
+      "curvature": 0.029,
+      "slopeDeg": 7,
+      "bankDeg": 5.22,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 269,
+      "endM": 320,
+      "curvature": 0,
+      "slopeDeg": 1,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    }
+  ],
+  "events": []
+}

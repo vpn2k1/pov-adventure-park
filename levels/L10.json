@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "L10",
+  "name": "Drop Tower",
+  "family": "fall",
+  "difficulty": 4,
+  "lengthM": 160,
+  "startSpeed": 3,
+  "minSpeed": 2,
+  "maxSpeed": 16,
+  "params": {
+    "halfWidth": 1.6,
+    "steer": 6.5,
+    "damping": 3.2,
+    "centering": 2.5,
+    "drag": 0.12,
+    "graceSec": 0.32,
+    "balanceLimit": 0.85,
+    "balanceGain": 2.4,
+    "balanceRecovery": 1
+  },
+  "segments": [
+    {
+      "startM": 0,
+      "endM": 29,
+      "curvature": 0,
+      "slopeDeg": 0,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 29,
+      "endM": 67,
+      "curvature": 0,
+      "slopeDeg": 65,
+      "bankDeg": 0,
+      "flow": 0.5,
+      "closed": false
+    },
+    {
+      "startM": 67,
+      "endM": 99,
+      "curvature": 0,
+      "slopeDeg": 80,
+      "bankDeg": 0,
+      "flow": -0.8,
+      "closed": false
+    },
+    {
+      "startM": 99,
+      "endM": 134,
+      "curvature": 0,
+      "slopeDeg": 35,
+      "bankDeg": 0,
+      "flow": 1.1,
+      "closed": false
+    },
+    {
+      "startM": 134,
+      "endM": 160,
+      "curvature": 0,
+      "slopeDeg": 0,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    }
+  ],
+  "events": [
+    {
+      "id": "landing",
+      "kind": "landing",
+      "atM": 157,
+      "maxAbsBalance": 0.35
+    }
+  ]
+}

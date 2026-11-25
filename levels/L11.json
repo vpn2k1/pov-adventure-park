@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "L11",
+  "name": "Loop Coaster",
+  "family": "rail",
+  "difficulty": 5,
+  "lengthM": 420,
+  "startSpeed": 5,
+  "minSpeed": 4,
+  "maxSpeed": 14,
+  "params": {
+    "halfWidth": 1.6,
+    "steer": 12,
+    "damping": 3.2,
+    "centering": 2.5,
+    "drag": 0.12,
+    "graceSec": 0.32,
+    "balanceLimit": 0.85,
+    "balanceGain": 2.4,
+    "balanceRecovery": 1
+  },
+  "segments": [
+    {
+      "startM": 0,
+      "endM": 76,
+      "curvature": 0,
+      "slopeDeg": 5,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 76,
+      "endM": 176,
+      "curvature": 0.047,
+      "slopeDeg": 8,
+      "bankDeg": 8.46,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 176,
+      "endM": 260,
+      "curvature": -0.047,
+      "slopeDeg": 4,
+      "bankDeg": -8.46,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 260,
+      "endM": 353,
+      "curvature": 0.035,
+      "slopeDeg": 7,
+      "bankDeg": 6.3,
+      "flow": 0,
+      "closed": false
+    },
+    {
+      "startM": 353,
+      "endM": 420,
+      "curvature": 0,
+      "slopeDeg": 1,
+      "bankDeg": 0,
+      "flow": 0,
+      "closed": false
+    }
+  ],
+  "events": []
+}
