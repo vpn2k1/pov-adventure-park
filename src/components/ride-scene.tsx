@@ -92,7 +92,7 @@ function Driver({level,session,read,comfort,onHud,onEvents,onLost,path}:ScenePro
  return null;
 }
 export const RideScene=memo(function RideScene(props:SceneProps){const path=useMemo(()=>createPath(props.level),[props.level]);
- return <Canvas camera={{fov:66,near:.08,far:160}} gl={{antialias:false}} dpr={1} style={{flex:1}}>
+ return <Canvas camera={{fov:66,near:.08,far:160}} gl={{antialias:false}} style={{flex:1}}>
   <color attach="background" args={[props.level.id==='L08'?'#6C879B':'#8ACEE9']}/><fog attach="fog" args={[props.level.id==='L08'?'#6C879B':'#8ACEE9',45,150]}/>
   <ambientLight intensity={1.6}/><directionalLight position={[8,18,10]} intensity={2}/>
   <Track level={props.level} path={path}/><Scenery level={props.level} path={path}/><Driver {...props} path={path}/>
