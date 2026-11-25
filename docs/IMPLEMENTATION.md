@@ -3,12 +3,12 @@ Mã nguồn prototype, chưa xác minh native. Dùng Expo SDK 58 / RN 0.88 / R3F
 
 | Phase | Kết quả | Gate |
 |---|---|---|
-| P0 | Cấu hình Expo, GL, sensor, touch, hướng dẫn setup | OPEN: install, expo-doctor, Android thật, sign, FPS |
-| P1 | Engine TS, 12 level, fixed timestep, procedural path + U/rail geometry, HUD, thất bại | Engine gốc: 10/10 test tại môi trường Node/tsc; renderer chưa test |
-| P2 | Home, park, ride, pause, calibrate, settings RHF/Zod, Zustand/AsyncStorage, retry, next, cue audio/haptic, comfort | OPEN: native typecheck, E2E, persistence error/retry |
+| P0 | Cấu hình Expo, GL, sensor, touch, hướng dẫn setup | CI install/doctor PASS; OPEN: Android thật, sign, FPS |
+| P1 | Engine TS, 12 level, fixed timestep, procedural path + U/rail geometry, HUD, thất bại | 14/14 core tests PASS; renderer chưa test trên thiết bị |
+| P2 | Home, park, ride, pause, calibrate, settings RHF/Zod, Zustand/AsyncStorage, retry, next, cue audio/haptic, comfort | Typecheck và Android export PASS; OPEN: E2E, persistence error/retry |
 | P3 | L01–L03 dùng rule riêng và chung scene | OPEN: playtest và device profiling |
 | P4 | 12 rule config có thể chọn sau unlock; rock/gate/landing events | PARTIAL: split gates là marker, chưa có geometry nhánh thật; L11 chưa lộn đứng, L10 mô phỏng dốc; không có checkpoint/editor |
-| P5 | UI theme, warning text, giảm roll, 3 cue tổng hợp | OPEN: toàn bộ asset gốc, artwork, loop audio, VI/EN, device matrix |
+| P5 | UI theme, warning text, giảm roll, 3 cue tổng hợp, 3 sprite POV preview | OPEN: toàn bộ asset gốc, artwork, loop audio, VI/EN, device matrix |
 | P6 | EAS profiles | OPEN: signing, native build, store release |
 
 ## Feature trace (Spec → Plan → Code → Review → Test)
@@ -21,3 +21,6 @@ Mã nguồn prototype, chưa xác minh native. Dùng Expo SDK 58 / RN 0.88 / R3F
 - F07 (feedback): specs 08 → audio cue và Haptics, comfort; loop audio và full VFX pending.
 
 Giới hạn: chưa import các asset WebP/GLB/WAV gốc do môi trường không truy cập mạng Git trực tiếp. Cảnh hiện tại procedural độc lập; 3 âm cue WAV tạo bằng code riêng. Không tuyên bố game production, APK, FPS hay tương thích native đã kiểm chứng. Chưa triển khai obfuscation/release R8 (cần signed build và test). Không đổi stack, không thêm backend hoặc quảng cáo.
+
+## CI evidence
+Run [45585427403](https://github.com/vpn2k1/pov-adventure-park/actions/runs/45585427403), commit `eaeb4ca`, cả core và expo jobs thành công: 14 test logic, npm install, Expo dependency check, Expo Doctor 20/20, tsc --noEmit và expo export --platform android. Không bao gồm Gradle APK/signing hoặc native playtest. npm audit báo 3 moderate vulnerabilities, cần rà soát trước release. Asset preview được thêm ở commit sau đó.

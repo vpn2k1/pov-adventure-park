@@ -4,7 +4,7 @@
 ## Quyết định sản phẩm
 Game 2.5D hybrid (máng/đường ray 3D, cảnh và hiệu ứng 2D), camera POV, màn hình dọc, tự tiến về trước. Nghiêng điện thoại trái/phải để giữ cân bằng, chọn đường, né nguy hiểm tự nhiên. Sai tư thế có thể mất kiểm soát, văng khỏi máng hoặc ray trong thế giới game. Không mô phỏng tai nạn thật, không hình ảnh thương tích. Thua → hiệu ứng ngắn → thử lại từ đầu/checkpoint.
 
-Đây là **gói thiết kế kỹ thuật để triển khai**, không phải app Expo hoàn chỉnh hay APK. Có 12 cấu hình level, schema kiểm tra dữ liệu, mã TypeScript tham chiếu chạy độc lập và test. Cảnh 3D, spline thực, sensor native, UI, lưu dữ liệu và build mobile vẫn cần triển khai. Mọi ngưỡng vật lý, thời lượng, KPI là giả định thiết kế, cần playtest.
+Repository chứa **Expo prototype có mã nguồn thực thi**, 12 cấu hình level, engine TypeScript, render procedural, cảm biến, giao diện, lưu tiến trình và test. CI đã kiểm tra bundle Android; chưa có APK hay nghiệm thu thiết bị thật. Các ngưỡng vật lý, thời lượng và KPI vẫn cần playtest.
 
 ## Đọc theo thứ tự
 | Tệp | Mục đích |
@@ -31,10 +31,10 @@ Game 2.5D hybrid (máng/đường ray 3D, cảnh và hiệu ứng 2D), camera PO
 | SOURCES.md | Tài liệu kỹ thuật chính thức |
 
 ## Khởi động
-1. Đọc AGENTS.md, GDD và roadmap. Chỉ làm Phase 0 trước.
-2. Tạo project Expo riêng theo setup/INSTALL.md; không copy các docs thành Expo project.
-3. Chạy `cd reference-engine && npm install && npm test` để kiểm tra engine tham chiếu; máy có `tsc` và Node thì có thể chạy `tsc -p tsconfig.json && node --test tests/*.test.cjs` mà không cài thêm.
-4. Tích hợp mẫu theo contracts, dựng level L01. Sau khi đạt gate mới mở rộng 11 level còn lại.
+1. Đọc AGENTS.md, GDD, roadmap và docs/IMPLEMENTATION.md.
+2. Cài dependency tại root theo lệnh bên dưới, không tạo Expo project mới.
+3. Kiểm tra engine, typecheck, CI và nghiệm thu L01 trên thiết bị thật trước khi polish 12 level.
+4. Import bộ asset gốc nếu có; prototype đã có 3 sprite WebP preview và 3 âm cue WAV.
 
 ## Asset pack tích hợp
 - `assets/`: textures WebP, sprites, backgrounds, GLB, WAV, thumbnails, paths và branding.
@@ -52,6 +52,7 @@ npm install
 npx expo install --fix
 npx expo-doctor
 npm run typecheck
+npm --prefix reference-engine install
 npm test
 npx expo run:android
 npm start
@@ -59,3 +60,8 @@ npm start
 Dùng Node >=22.13, Android SDK/JDK tương thích Expo 58. Kiểm tra sensor và FPS trên máy thật. Nếu chưa có quyền sensor chọn chạm. Không force install peer dependencies. Không chạy create-expo-app đè lên repo.
 
 Xem [trạng thái triển khai](docs/IMPLEMENTATION.md), [QA](qa/PROTOTYPE-TESTS.md) và [phần đồng bộ còn thiếu](SYNC_STATUS.md). 12 level có rule nhưng branch/loop thật chưa hoàn thành. Các asset gốc chưa đồng bộ toàn bộ; phần render hiện tại procedural.
+
+### Import asset gốc
+Giải nén asset pack ở ngoài repository rồi chạy `node scripts/import-assets.mjs /path/to/pov-adventure-park-assets`. Script copy asset và thay 3 sprite POV preview bằng bản đầy đủ, không ghi đè mã nguồn. Kiểm tra `git diff --stat` và commit asset nếu muốn.
+
+CI đã pass: [core + Expo Android export, commit eaeb4ca](https://github.com/vpn2k1/pov-adventure-park/actions/runs/45585427403). Đây không phải native APK build.

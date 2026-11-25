@@ -16,5 +16,6 @@ for(const f of files){const rel=path.relative(sourceAssets,f);if(!/\.(webp|glb|w
 const inventory=files.map(f=>({path:path.relative(src,f).split(path.sep).join('/'),sha256:createHash('sha256').update(fs.readFileSync(f)).digest('hex')}));
 for(const f of files){const dest=path.join(rootAssets,path.relative(sourceAssets,f));fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(f,dest)}
 for(const f of ['manifest.json','level-assets.json','preview.webp'])if(fs.existsSync(path.join(src,f)))fs.copyFileSync(path.join(src,f),path.join(root,f));
+for(const [from,to] of [['feet.webp','feet.webp'],['raft_rim.webp','raft.webp'],['coaster_front.webp','coaster.webp']]){const p=path.join(sourceAssets,'sprites/pov',from);if(fs.existsSync(p)){fs.mkdirSync(path.join(rootAssets,'prototype'),{recursive:true});fs.copyFileSync(p,path.join(rootAssets,'prototype',to));}}
 fs.writeFileSync(path.join(root,'qa/imported-assets.json'),JSON.stringify(inventory,null,2)+'\n');
 console.log('Imported',files.length,'original files. Review git status/diff before commit. Source not overwritten.');
