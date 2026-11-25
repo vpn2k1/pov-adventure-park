@@ -1,0 +1,58 @@
+{
+  "baseline": "Expo SDK 58 (verify peer matrix P0)",
+  "required": {
+    "template": [
+      "expo",
+      "react",
+      "react-native",
+      "typescript",
+      "expo-router",
+      "react-native-safe-area-context",
+      "react-native-screens"
+    ],
+    "expoInstall": [
+      "expo-dev-client",
+      "expo-gl",
+      "expo-asset",
+      "expo-sensors",
+      "expo-audio",
+      "expo-haptics",
+      "expo-screen-orientation",
+      "expo-keep-awake",
+      "@react-native-async-storage/async-storage"
+    ],
+    "npmInstall": [
+      "three",
+      "@react-three/fiber",
+      "zustand",
+      "react-hook-form",
+      "zod",
+      "@hookform/resolvers"
+    ],
+    "dev": [
+      "@types/three",
+      "jest-expo",
+      "jest",
+      "@testing-library/react-native",
+      "eslint-config-expo",
+      "prettier"
+    ]
+  },
+  "optional": {
+    "P2": [
+      "react-native-gesture-handler"
+    ],
+    "P5": [
+      "react-native-reanimated",
+      "react-native-worklets",
+      "i18next",
+      "react-i18next",
+      "expo-localization"
+    ],
+    "P6": [
+      "@tanstack/react-query",
+      "expo-updates"
+    ]
+  },
+  "notes": "Versions resolved in actual Expo app; no lockfile or native compatibility claim."
+}
