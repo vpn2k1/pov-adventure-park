@@ -1,5 +1,5 @@
 import { useCallback,useEffect,useRef,useState } from 'react';
-import { AppState,BackHandler,Pressable,StyleSheet,Text,View } from 'react-native';
+import { AppState,BackHandler,Image,Pressable,StyleSheet,Text,View } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useKeepAwake } from 'expo-keep-awake';
@@ -63,6 +63,7 @@ export function RideScreen({level}:{level:Level}){
  const prepare=phase==='prepare'||phase==='pause';
  return <View style={s.root}>
   <RideBoundary key={attempt} onExit={leave}><RideScene level={level} session={session} read={read} comfort={settings.comfort} onHud={setHud} onEvents={onEvents} onLost={onLost}/></RideBoundary>
+  {(phase==='ride'||phase==='countdown')&&<View pointerEvents="none" style={{position:'absolute',alignItems:'center',left:0,right:0,bottom:insets.bottom+(mode==='touch'?185:94)}}><Image source={level.family==='rail'||level.family==='fall'?require('../../assets/prototype/coaster.webp'):level.family==='raft'?require('../../assets/prototype/raft.webp'):require('../../assets/prototype/feet.webp')} resizeMode="contain" style={{width:140,height:86,transform:[{translateX:Math.max(-25,Math.min(25,corrective*12))}]}}/></View>}
   <View pointerEvents="box-none" style={[s.hud,{top:insets.top+10}]}><View style={s.hudRow}><Text style={s.label}>{level.id} • {level.name}</Text>{(phase==='ride'||phase==='countdown')&&<Pressable accessibilityRole="button" accessibilityLabel="Tạm dừng" onPress={()=>pause()} style={s.pause}><Text style={s.label}>Ⅱ</Text></Pressable>}</View><View style={s.bar}><View style={[s.fill,{width:(hud.s/level.lengthM*100)+'%' as `${number}%`}]}/></View><Text style={s.label}>{Math.round(hud.v*3.6)} km/h · {Math.floor(hud.s)}/{level.lengthM} m</Text></View>
   {(phase==='ride'||phase==='countdown')&&<View pointerEvents="none" style={[s.hint,{bottom:insets.bottom+(mode==='touch'?116:30),backgroundColor:hud.warning?'#7C2E28E8':'#08283BDB'}]}><Text style={s.label}>{hint}</Text><View style={s.bar}><View style={[s.fill,{backgroundColor:hud.warning?palette.danger:palette.green,width:Math.min(100,hud.risk*100)+'%' as `${number}%`}]}/></View></View>}
   {phase==='ride'&&mode==='touch'&&<View style={[s.controls,{bottom:insets.bottom+18}]}>{[-1,1].map(dir=><Pressable key={dir} accessibilityRole="button" accessibilityLabel={dir<0?'Nghiêng trái':'Nghiêng phải'} onPressIn={()=>{latest.current.touch.current=dir}} onPressOut={()=>{if(latest.current.touch.current===dir)latest.current.touch.current=0}} style={s.control}><Text style={s.controlText}>{dir<0?'←':'→'}</Text></Pressable>)}</View>}
