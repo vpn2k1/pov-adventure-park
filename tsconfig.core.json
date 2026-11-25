@@ -1,1 +1,16 @@
-{"compilerOptions":{"target":"ES2022","module":"CommonJS","strict":true,"outDir":"dist/core","rootDir":".","noEmitOnError":true},"include":["src/domain/path.ts","src/domain/session.ts","reference-engine/src/engine.ts"]}
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "Node16",
+    "strict": true,
+    "outDir": "dist/core",
+    "rootDir": ".",
+    "noEmitOnError": true,
+    "moduleResolution": "Node16"
+  },
+  "include": [
+    "src/domain/path.ts",
+    "src/domain/session.ts",
+    "reference-engine/src/engine.ts"
+  ]
+}
