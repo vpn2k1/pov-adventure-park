@@ -42,4 +42,20 @@ Game 2.5D hybrid (máng/đường ray 3D, cảnh và hiệu ứng 2D), camera PO
 - `docs/assets/README.md` và `docs/assets/QA.md`: hướng dẫn tích hợp và giới hạn asset.
 - `preview.webp`: ảnh xem trước asset.
 
-Repository hiện tại là bộ tài liệu, asset và engine tham chiếu; chưa có ứng dụng Expo chạy hoàn chỉnh. Giữ các đường dẫn asset tại root khi tích hợp app.
+Repository hiện có mã Expo prototype; native build và thiết bị thật chưa được xác minh. Giữ các đường dẫn asset tại root khi tích hợp app.
+
+## Chạy mã prototype hiện tại
+```bash
+git clone https://github.com/vpn2k1/pov-adventure-park.git
+cd pov-adventure-park
+npm install
+npx expo install --fix
+npx expo-doctor
+npm run typecheck
+npm test
+npx expo run:android
+npm start
+```
+Dùng Node >=22.13, Android SDK/JDK tương thích Expo 58. Kiểm tra sensor và FPS trên máy thật. Nếu chưa có quyền sensor chọn chạm. Không force install peer dependencies. Không chạy create-expo-app đè lên repo.
+
+Xem [trạng thái triển khai](docs/IMPLEMENTATION.md), [QA](qa/PROTOTYPE-TESTS.md) và [phần đồng bộ còn thiếu](SYNC_STATUS.md). 12 level có rule nhưng branch/loop thật chưa hoàn thành. Các asset gốc chưa đồng bộ toàn bộ; phần render hiện tại procedural.

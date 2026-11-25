@@ -1,0 +1,298 @@
+{
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "id",
+    "name",
+    "family",
+    "difficulty",
+    "lengthM",
+    "startSpeed",
+    "minSpeed",
+    "maxSpeed",
+    "params",
+    "segments",
+    "events"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^L[0-9]{2}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "family": {
+      "enum": [
+        "slide",
+        "rail",
+        "raft",
+        "ice",
+        "fall"
+      ]
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "lengthM": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "startSpeed": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 50
+    },
+    "minSpeed": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 50
+    },
+    "maxSpeed": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 50
+    },
+    "params": {
+      "type": "object",
+      "required": [
+        "halfWidth",
+        "steer",
+        "damping",
+        "centering",
+        "drag",
+        "graceSec",
+        "balanceLimit",
+        "balanceGain",
+        "balanceRecovery"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "halfWidth": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 100
+        },
+        "steer": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 100
+        },
+        "damping": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 100
+        },
+        "centering": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 100
+        },
+        "drag": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 100
+        },
+        "graceSec": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 100
+        },
+        "balanceLimit": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 100
+        },
+        "balanceGain": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 100
+        },
+        "balanceRecovery": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 100
+        }
+      }
+    },
+    "segments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "startM",
+          "endM",
+          "curvature",
+          "slopeDeg",
+          "bankDeg",
+          "flow",
+          "closed"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "startM": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "endM": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "curvature": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+          },
+          "slopeDeg": {
+            "type": "number",
+            "minimum": -89,
+            "maximum": 89
+          },
+          "bankDeg": {
+            "type": "number",
+            "minimum": -80,
+            "maximum": 80
+          },
+          "flow": {
+            "type": "number",
+            "minimum": -20,
+            "maximum": 20
+          },
+          "closed": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "kind",
+              "atM",
+              "minX",
+              "maxX"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "const": "rock"
+              },
+              "atM": {
+                "type": "number",
+                "minimum": 0.001,
+                "maximum": 10000
+              },
+              "minX": {
+                "type": "number"
+              },
+              "maxX": {
+                "type": "number"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "kind",
+              "atM",
+              "zones"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "const": "gate"
+              },
+              "atM": {
+                "type": "number",
+                "minimum": 0.001,
+                "maximum": 10000
+              },
+              "zones": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "minX",
+                    "maxX",
+                    "route"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "minX": {
+                      "type": "number"
+                    },
+                    "maxX": {
+                      "type": "number"
+                    },
+                    "route": {
+                      "enum": [
+                        "left",
+                        "right"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "kind",
+              "atM",
+              "maxAbsBalance"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "const": "landing"
+              },
+              "atM": {
+                "type": "number",
+                "minimum": 0.001,
+                "maximum": 10000
+              },
+              "maxAbsBalance": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}
