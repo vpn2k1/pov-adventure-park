@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "POV Adventure Park",
+    "slug": "pov-adventure-park",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "povpark",
+    "userInterfaceStyle": "dark",
+    "android": {
+      "package": "com.vpn2k1.povadventurepark"
+    },
+    "ios": {
+      "bundleIdentifier": "com.vpn2k1.povadventurepark",
+      "supportsTablet": false
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Cho phép sử dụng chuyển động để điều khiển trò chơi."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
